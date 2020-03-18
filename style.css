@@ -1,7 +1,7 @@
 html {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .form {
@@ -24,15 +24,25 @@ html {
     line-height: 30px;
 }
 
-
 input {
-    border-radius: 6px;
+    height: 24px;
+    font-size: 24px;
+    border-radius: 2px;
     width: 70%;
     border: 1px solid orange;
 }
 
 button {
     height: 50px;
-    border-radius: 10px;
+    border-radius: 5px;
     border:0;
+    font-size: 24px;
+}
+
+.result-print {
+    background-color: yellow;
+}
+
+p {
+    color: black;
 }
