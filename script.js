@@ -1,47 +1,30 @@
-let button = document.querySelector('button');
+let submit = document.querySelector('button');
 
 function getValue(element) {
-    element = document.querySelector(`${element}`).value;
-    return element;
+    value = document.querySelector(`${element}`).value;
+    return value;
 }
 
-// Error checking as per technical task
-function isPositive(value) {
-    if (value === Math.abs(value)){
-        return true;
-    } else {
-        return false; 
-    }
-};
+function calculateFinalDeposit() {
+    // Declaration of variables:
+    let deposit = document.querySelector('#deposit').value;
+    let payment = document.querySelector('#payment').value;
+    let rate = document.querySelector('#rate').value;
+    let days = document.querySelector('#days').value;
 
-function isInteger(value) {
-    if (value === Math.trunc(value)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-// main body of the code:
+    // Error checking the variables:
+    if (deposit !== Math.abs(deposit)) { console.log("NaN :)") ; }
+    if (payment !== Math.abs(payment)) { console.log("NaN :)"); }
+    if (days !== Math.trunc(days)) {console.log("NaN :)") ; }
+    if (!(days>0 && days <100)) { console.log("NaN :)"); }
 
-
-function calculateFinalDeposit(deposit, payment, rate, days) {
+    // Main calculation:
     months = days/30;
-    console.log(`days: ${days}, months: ${months}`)
-    let result = payment * ( ((1+rate)**months - 1)/rate);
+    rate = rate/100/12;
+    let result = payment * (((1+rate)**months - 1)/rate);
+    result = Math.round(result);
     console.log(result);
-    // for (let i = 0; i < months; i++){
-        
-    // }
+    document.querySelector('#result').innerHTML = `По указанным критериям, баланс составит: ${result}`;
 }
 
-// calculateFinalDeposit(deposit, payment, rate, days);
-
-function printValues() {
-    let a = getValue('#deposit');
-    console.log(a);
-}
-
-document.querySelector('#result').innerHTML = "HELLO";
-
-
-button.addEventListener('click', printValues);
+submit.addEventListener('click', calculateFinalDeposit);
