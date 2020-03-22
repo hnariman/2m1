@@ -1,7 +1,7 @@
 html {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .form {
@@ -9,7 +9,7 @@ html {
     margin: auto;
     flex-direction: column;
     justify-content: space-between;
-    width: 50%;
+    width: 80%;
     background-color: green;
     border-radius: 12px;
     padding: 3%;
@@ -26,7 +26,7 @@ html {
 
 input {
     height: 24px;
-    font-size: 24px;
+    font-size: 18px;
     border-radius: 2px;
     width: 70%;
     border: 1px solid orange;
@@ -36,7 +36,7 @@ button {
     height: 50px;
     border-radius: 5px;
     border:0;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .result-print {

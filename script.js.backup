@@ -1,0 +1,40 @@
+let submit = document.querySelector('button');
+
+function getValue(element) {
+  value = document.querySelector(`${element}`).value;
+  return value;
+}
+
+function calculateFinalDeposit() {
+  // Declaration of variables:
+  let deposit = +getValue('#deposit');
+  let payment = +getValue('#payment');
+  let rate = +getValue('#rate');
+  let days = +getValue('#days');
+
+  // Error checking the variables:
+  //     if (deposit !== Math.abs(deposit)) { console.log("NaN :)") ; }
+  //     if (payment !== Math.abs(payment)) { console.log("NaN :)"); }
+  //     if (days !== Math.trunc(days)) {console.log("NaN :)") ; }
+  //     if (!(days>0 && days <100)) { console.log("NaN :)"); }
+
+  // Main calculation:
+  months = days/30;
+  rate = rate/100/12;
+  let newSum = 0;
+
+  // this will be some cycle to calculate the rate increase
+  for (cycle = 0; cycle<months; cycle++) {
+    interest = rate * deposit;
+   newSum = interest + deposit + payment; 
+    console.log(`new interest: ${newSum, interest }`);
+
+    deposit += (deposit * rate) + payment
+    console.log(`interest: ${deposit*rate}`);
+  }
+  result = deposit.toFixed(2);
+  document.querySelector('#result').innerHTML =
+    `По указанным критериям, баланс составит: ${result}`;
+}
+
+submit.addEventListener('click', calculateFinalDeposit);

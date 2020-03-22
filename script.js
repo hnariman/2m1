@@ -1,30 +1,39 @@
-let submit = document.querySelector('button');
+// Getting html elements for action:
+let button = document.querySelector('button');
+let result = document.querySelector('#result');
 
-function getValue(element) {
-    value = document.querySelector(`${element}`).value;
-    return value;
+function calculateFutureValue() {
+  // Getting data from user input
+  let deposit = +document.querySelector('#deposit').value;
+  let payment = +document.querySelector('#payment').value;
+  let rate= +document.querySelector('#rate').value;
+  let days = +document.querySelector('#days').value;
+
+  while (true) {
+    // Error checking user input
+    if (deposit != Math.abs(deposit)) { break; }
+    if (payment != Math.abs(payment)) { break; }
+    if (rate != Math.abs(rate) || rate >100) { break; }
+    if (days != Math.abs(days)) { break; }
+    if (days != Math.trunc(days)) { break; }
+
+    // variables correction
+    let month = days/30;
+    rate = rate/12/100;
+
+    // Future Value Calculation
+    for ( increment=0; increment<month; increment++ ) {
+      deposit += deposit * rate;
+      console.log(deposit*rate);
+      deposit += payment;
+      // deposit += ( deposit * rate ) + payment;
+    }
+    console.log('OK ');
+    result.innerHTML = ` Future value is ${deposit.toFixed(2)}`;
+    return deposit;
+  }
+  console.log('NaN');
+  return NaN;
 }
 
-function calculateFinalDeposit() {
-    // Declaration of variables:
-    let deposit = document.querySelector('#deposit').value;
-    let payment = document.querySelector('#payment').value;
-    let rate = document.querySelector('#rate').value;
-    let days = document.querySelector('#days').value;
-
-    // Error checking the variables:
-    if (deposit !== Math.abs(deposit)) { console.log("NaN :)") ; }
-    if (payment !== Math.abs(payment)) { console.log("NaN :)"); }
-    if (days !== Math.trunc(days)) {console.log("NaN :)") ; }
-    if (!(days>0 && days <100)) { console.log("NaN :)"); }
-
-    // Main calculation:
-    months = days/30;
-    rate = rate/100/12;
-    let result = payment * (((1+rate)**months - 1)/rate);
-    result = Math.round(result);
-    console.log(result);
-    document.querySelector('#result').innerHTML = `По указанным критериям, баланс составит: ${result}`;
-}
-
-submit.addEventListener('click', calculateFinalDeposit);
+button.addEventListener('click', calculateFutureValue);
