@@ -1,10 +1,10 @@
-// get html elements: 
+// ________________________get html elements: 
 const button = document.querySelector('button');
 const table = document.querySelector('table');
 const errorMessage = document.querySelector('#error');
 const result = document.querySelector('#result');
 
-// fire alarm when error :) 
+// ________________________fire alarm when error :) 
 function error(element) {
   errorMessage.innerHTML = `${element} указан неверно!`;
   //  alert(`${element} is not a correct value`);
@@ -15,7 +15,7 @@ function output(someResult, target){
   target.style.visibility = "visible";
 }
 
-// main calculator
+// ________________________main calculator
 function calculateFutureValue(deposit, days, rate, payment) {
   const month = days / 30;
   const monthlyRate = rate / 12 / 100;
@@ -29,14 +29,14 @@ function calculateFutureValue(deposit, days, rate, payment) {
   return final;
 }
 
-// main wrapper function:
+// ________________________main wrapper function:
 function main() {
 
-  // reset errors and indicators:
+  // ________________________reset errors and indicators:
   errorMessage.innerHTML = "";
   result.style.visibility = "hidden";
 
-  // get data from user input
+  // ________________________get data from user input
   const deposit = +document.querySelector('#deposit').value;
   const payment = +document.querySelector('#payment').value;
   const rate = +document.querySelector('#rate').value;
@@ -53,4 +53,4 @@ function main() {
   return NaN;
 }
 
-button.addEventListener('click', calculateFutureValue);
+button.addEventListener('click', main);
