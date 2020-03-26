@@ -1,4 +1,3 @@
-
 // Getting html elements for action:
 let button = document.querySelector('button');
 let table = document.querySelector('table');
@@ -36,7 +35,6 @@ function calculateFutureValue() {
         <td>${(deposit*rate).toFixed(2)}</td>
       </tr>
         `;
-      // deposit += ( deposit * rate ) + payment;
     }
     console.log('OK ');
     result.style = "display:flex;";
