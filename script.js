@@ -4,9 +4,10 @@ const table = document.querySelector('table');
 const result = document.querySelector('#result');
 const errorMessage = document.querySelector('#error');
 
-
 function calculateFutureValue() {
   // Getting data from user input
+  errorMessage.innerHTML = "";
+  result.style.visibility = "hidden";
   const deposit = +document.querySelector('#deposit').value;
   const payment = +document.querySelector('#payment').value;
   const rate = +document.querySelector('#rate').value;
@@ -34,7 +35,7 @@ function calculateFutureValue() {
       final += payment;
     }
     result.innerHTML = ` ${final.toFixed(2)}`;
-    result.style = "display:flex";
+    result.style.visibility = "visible";
     return result;
   }
   return NaN;
