@@ -5,12 +5,16 @@ const result = document.querySelector('#result');
 const errorMessage = document.querySelector('#error');
 
 // Getting data from user input
-const deposit = +document.querySelector('#deposit').value;
-const payment = +document.querySelector('#payment').value;
-const rate = +document.querySelector('#rate').value;
-const days = +document.querySelector('#days').value;
+const deposit = document.querySelector('#deposit');
+const payment = document.querySelector('#payment');
+const rate = document.querySelector('#rate');
+const days = document.querySelector('#days');
 
 function calculateFutureValue(deposit, payment, rate, days) {
+  const depositValue  = deposit.value;
+  const paymentValue  = payment.value;
+  const rateValue  = rate.value;
+  const daysValue  = days.value;
   // Error checking user input
   function error(element) {
     errorMessage.innerHTML = `${element} указан неверно!`;
