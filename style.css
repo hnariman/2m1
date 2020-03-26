@@ -14,9 +14,14 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 .wrapper {
+  min-width: 600px;
   height:100%;
 }
 
+
+input:focus {
+  outline: none;
+}
 
 .calculator {
   display:flex;
@@ -25,7 +30,7 @@ input[type=number] {
   justify-content: space-between;
   border-radius:10px;
   box-shadow: 7px 7px 12px 1px rgba(0,0,0,0.5);
-  width: 80%;
+  width: 60%;
   margin:0 auto;
 }
 
@@ -40,6 +45,7 @@ input[type=number] {
 }
 
 .output {
+  min-width: 160px;
   display: flex;
   flex-direction:column;
   align-items: center;
@@ -48,7 +54,10 @@ input[type=number] {
 }
 
 .fields {
+  /* box-shadow: inset 0 0 1px 1px #222831;  */
   margin-bottom:10px;
+  border-radius: 10px;
+  padding: 8px;
   color:#393e46;
   border:0px;
   background:rgba(196, 196, 196, 0.1);
@@ -68,6 +77,7 @@ input[type=number] {
 }
 
 .apply {
+  outline: none;
   border:0;
   padding:10px;
   border-radius:4px;
@@ -87,7 +97,7 @@ input[type=number] {
 }
 
 .field-name {
-  color: silver;
+  color: grey;
   font-weight: 500;
   margin-bottom: 5px;
 }
@@ -124,6 +134,7 @@ table tr:nth-child(2) {
 #error {
   display: flex;
   margin: 0 ;
+  margin-top: 10%;
   color: yellow;
   font-size: 11px;
 }

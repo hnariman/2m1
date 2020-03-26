@@ -6,12 +6,12 @@ const errorMessage = document.querySelector('#error');
 
 function calculateFutureValue() {
   // Getting data from user input
-  errorMessage.innerHTML = "";
-  result.style.visibility = "hidden";
   const deposit = +document.querySelector('#deposit').value;
   const payment = +document.querySelector('#payment').value;
   const rate = +document.querySelector('#rate').value;
   const days = +document.querySelector('#days').value;
+  errorMessage.innerHTML = "";
+  result.style.visibility = "hidden";
 
   // Error checking user input
   function error(element) {
