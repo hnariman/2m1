@@ -1,48 +1,57 @@
 // Getting html elements for action:
-let button = document.querySelector('button');
-let table = document.querySelector('table');
-let result = document.querySelector('#result');
+const button = document.querySelector('button');
+const table = document.querySelector('table');
+const result = document.querySelector('#result');
 
-table.innerHTML = "";
+// table.innerHTML = "";
 function calculateFutureValue() {
   // Getting data from user input
-  let deposit = +document.querySelector('#deposit').value;
-  let payment = +document.querySelector('#payment').value;
-  let rate= +document.querySelector('#rate').value;
-  let days = +document.querySelector('#days').value;
+  const deposit = +document.querySelector('#deposit').value;
+  const payment = +document.querySelector('#payment').value;
+  const rate = +document.querySelector('#rate').value;
+  const days = +document.querySelector('#days').value;
 
-  while (true) {
-    // Error checking user input
-    if (deposit != Math.abs(deposit)) { break; }
-    if (payment != Math.abs(payment)) { break; }
-    if (rate != Math.abs(rate) || rate >100) { break; }
-    if (days != Math.abs(days)) { break; }
-    if (days != Math.trunc(days)) { break; }
-
+  // Error checking user input
+  function error(element) { alert(`${element} is not a correct value`); console.log('problem'); }
+  if (deposit != Math.abs(deposit)) { alert('deposit'); error(deposit); }
+  else if (payment != Math.abs(payment)) { error(payment); }
+  else if (rate != Math.abs(rate) || rate > 100) { error(rate); }
+  else if (days != Math.abs(days)) { error(days); }
+  else if (days != Math.trunc(days)) { error(days); }
+  else {
     // variables correction
-    let month = days/30;
-    rate = rate/12/100;
+    const month = days / 30;
+    let monthlyRate = rate / 12 / 100;
 
     // Future Value Calculation
-    for ( increment=0; increment<month; increment++ ) {
-      deposit += deposit * rate;
-      console.log(deposit*rate);
-      deposit += payment;
-      table.innerHTML += `
-      <tr>
-        <td>${(increment+1)}</td>
-        <td>${(deposit+=deposit*rate).toFixed(2)}</td>
-        <td>${(deposit*rate).toFixed(2)}</td>
-      </tr>
-        `;
+    let result = 0;
+    for (increment = 0; increment < month; increment++) {
+      result += deposit * monthlyRate;
+      console.log(deposit * monthlyRate);
+      result += payment;
     }
-    console.log('OK ');
-    result.style = "display:flex;";
-    result.innerHTML = ` $ ${deposit.toFixed(2)}`;
-    return deposit;
+    result.innerHTML = ` Future value is ${result.toFixed(2)}`;
+    return result;
   }
+  // dop zadaniye
+  //    for (increment = 0; increment < month; increment++) {
+  //      deposit += deposit * rate;
+  //      console.log(deposit * rate);
+  //      deposit += payment;
+  //      table.innerHTML += `
+  //      <tr>
+  //        <td>${(increment + 1)}</td>
+  //        <td>${(deposit += deposit * rate).toFixed(2)}</td>
+  //        <td>${(deposit * rate).toFixed(2)}</td>
+  //      </tr>
+  //        `;
+  //    }
+  //    console.log('OK ');
+  //    result.style = "display:flex;";
+  //    result.innerHTML = ` $ ${deposit.toFixed(2)}`;
+  //    return deposit;
+  //  }
   console.log('NaN');
   return NaN;
 }
-
 button.addEventListener('click', calculateFutureValue);
