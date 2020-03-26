@@ -4,17 +4,14 @@ const table = document.querySelector('table');
 const result = document.querySelector('#result');
 const errorMessage = document.querySelector('#error');
 
-// Getting data from user input
-const deposit = document.querySelector('#deposit');
-const payment = document.querySelector('#payment');
-const rate = document.querySelector('#rate');
-const days = document.querySelector('#days');
 
-function calculateFutureValue(deposit, payment, rate, days) {
-  const depositValue  = deposit.value;
-  const paymentValue  = payment.value;
-  const rateValue  = rate.value;
-  const daysValue  = days.value;
+function calculateFutureValue() {
+  // Getting data from user input
+  const deposit = +document.querySelector('#deposit').value;
+  const payment = +document.querySelector('#payment').value;
+  const rate = +document.querySelector('#rate').value;
+  const days = +document.querySelector('#days').value;
+
   // Error checking user input
   function error(element) {
     errorMessage.innerHTML = `${element} указан неверно!`;
@@ -26,7 +23,6 @@ function calculateFutureValue(deposit, payment, rate, days) {
   else if (days != Math.abs(days)) { error('days'); }
   else if (days != Math.trunc(days)) { error('days'); }
   else {
-
     // variables correction
     const month = days / 30;
     const monthlyRate = rate / 12 / 100;
@@ -43,4 +39,5 @@ function calculateFutureValue(deposit, payment, rate, days) {
   }
   return NaN;
 }
+
 button.addEventListener('click', calculateFutureValue);
