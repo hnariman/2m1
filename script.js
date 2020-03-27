@@ -44,7 +44,7 @@ function main() {
 
     if (deposit != Math.abs(deposit)) { error('deposit'); }
     else if (payment != Math.abs(payment)) { error('payment'); }
-    else if (rate != Math.abs(rate) || rate > 100) { error('rate'); }
+    else if (rate != Math.abs(rate) || rate > 100 || rate <0 ) { error('rate'); }
     else if (days != Math.abs(days)) { error('days'); }
     else if (days != Math.trunc(days)) { error('days'); }
     else {
