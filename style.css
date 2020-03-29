@@ -135,4 +135,10 @@ table tr:nth-child(2) {
   color: yellow;
   font-size: 11px;
 }
-  
+
+  .my-widget {
+    display:flex;
+  --bg-color: #111;
+  --badge-bg-color: #333;
+  --badge-text-color: #fff;
+}
