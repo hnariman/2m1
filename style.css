@@ -140,7 +140,7 @@ table tr:nth-child(2) {
     margin: 0 auto;
     margin-top:10%;
     width:40%;
-    --bg-color: #bbb;
+    --bg-color: #222831;
     --badge-bg-color: #333;
     --badge-text-color: #fff;
 }
