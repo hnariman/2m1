@@ -136,12 +136,12 @@ table tr:nth-child(2) {
   font-size: 11px;
 }
 
-  .my-widget {
-    display:flex;
+.my-widget {
     margin: 0 auto;
-    margin-top:20%;
+    margin-top:10%;
     width:40%;
-  --bg-color: #111;
-  --badge-bg-color: #333;
-  --badge-text-color: #fff;
+    --bg-color: #bbb;
+    --badge-bg-color: #333;
+    --badge-text-color: #fff;
 }
+
