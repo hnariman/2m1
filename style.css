@@ -138,6 +138,7 @@ table tr:nth-child(2) {
 
   .my-widget {
     display:flex;
+    width:40%;
   --bg-color: #111;
   --badge-bg-color: #333;
   --badge-text-color: #fff;
